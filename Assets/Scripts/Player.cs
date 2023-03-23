@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         grounded = Physics2D.OverlapCircle(feet.position, 0.2f, whatIsGround);
-        //_animator.SetBool("Grounded", grounded);
+        _animator.SetBool("Grounded", grounded);
 
         if(Input.GetButtonDown("Jump") && grounded)
         {
@@ -45,3 +45,4 @@ public class Player : MonoBehaviour
         }
     }
 }
+ 
