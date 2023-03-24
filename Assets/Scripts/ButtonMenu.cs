@@ -15,11 +15,11 @@ public class ButtonMenu : MonoBehaviour
     }
 
     public void LoadHelp() {
-        SceneManager.LoadScene("HelpScene");
+        SceneManager.LoadScene("Help");
     }
 
     public void Quit() {
-        SceneManager.LoadScene("Start Menu");
+        SceneManager.LoadScene("start");
     }
 
 }
