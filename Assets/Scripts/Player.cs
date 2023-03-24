@@ -6,11 +6,16 @@ public class Player : MonoBehaviour
 {
     public int speed = 8;
     public int jumpForce = 888;
+    public int bulletForce = 500;
 
     public LayerMask whatIsGround;
     public Transform feet;
+    public GameObject bulletPrefab;
+    public Transform spawnPoint;
+    public AudioClip shootSnd;
     private Rigidbody2D _rigidbody;
     private Animator _animator;
+    private AudioSource _audiosource;
 
     bool grounded = false;
 
@@ -18,6 +23,7 @@ public class Player : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _audiosource = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -42,6 +48,19 @@ public class Player : MonoBehaviour
         if(Input.GetButtonDown("Jump") && grounded)
         {
             _rigidbody.AddForce(new Vector2(0, jumpForce));
+        }
+
+        if(Input.GetButtonDown("Fire1"))
+        {
+            _audiosource.PlayOneShot(shootSnd);
+            GameObject newBullet = Instantiate(bulletPrefab, spawnPoint.position, Quaternion.identity);
+            
+            if(transform.localScale.x > 0)
+            {
+                newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(-bulletForce, 0));
+            }
+            else 
+            newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletForce, 0));
         }
     }
 }
