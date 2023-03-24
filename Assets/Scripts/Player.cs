@@ -37,31 +37,31 @@ public class Player : MonoBehaviour
             transform.localScale *= new Vector2(-1, 1);
         }
 
-        _animator.SetFloat("Speed", xSpeed);
+        // _animator.SetFloat("Speed", xSpeed);
     }
 
     void Update()
     {
         grounded = Physics2D.OverlapCircle(feet.position, 0.2f, whatIsGround);
-        _animator.SetBool("Grounded", grounded);
+        // _animator.SetBool("Grounded", grounded);
 
         if(Input.GetButtonDown("Jump") && grounded)
         {
             _rigidbody.AddForce(new Vector2(0, jumpForce));
         }
 
-        if(Input.GetButtonDown("Fire1"))
-        {
-            _audiosource.PlayOneShot(shootSnd);
-            GameObject newBullet = Instantiate(bulletPrefab, spawnPoint.position, Quaternion.identity);
+        // if(Input.GetButtonDown("Fire1"))
+        // {
+        //     _audiosource.PlayOneShot(shootSnd);
+        //     GameObject newBullet = Instantiate(bulletPrefab, spawnPoint.position, Quaternion.identity);
             
-            if(transform.localScale.x > 0)
-            {
-                newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(-bulletForce, 0));
-            }
-            else 
-            newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletForce, 0));
-        }
+        //     if(transform.localScale.x > 0)
+        //     {
+        //         newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(-bulletForce, 0));
+        //     }
+        //     else 
+        //     newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletForce, 0));
+        // }
     }
 }
  
