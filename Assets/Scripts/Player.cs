@@ -50,18 +50,19 @@ public class Player : MonoBehaviour
             _rigidbody.AddForce(new Vector2(0, jumpForce));
         }
 
-        // if(Input.GetButtonDown("Fire1"))
-        // {
-        //     _audiosource.PlayOneShot(shootSnd);
-        //     GameObject newBullet = Instantiate(bulletPrefab, spawnPoint.position, Quaternion.identity);
+        if(Input.GetButtonDown("Fire1"))
+        {
+            // _animator.Play("PlayerAttack");
+            _audiosource.PlayOneShot(shootSnd);
+            GameObject newBullet = Instantiate(bulletPrefab, spawnPoint.position, Quaternion.identity);
             
-        //     if(transform.localScale.x > 0)
-        //     {
-        //         newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(-bulletForce, 0));
-        //     }
-        //     else 
-        //     newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletForce, 0));
-        // }
+            if(transform.localScale.x > 0)
+            {
+                newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(-bulletForce, 0));
+            }
+            else 
+            newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletForce, 0));
+        }
     }
 }
  
