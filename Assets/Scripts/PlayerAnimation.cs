@@ -16,7 +16,7 @@ public class PlayerAnimation : MonoBehaviour
         if (Input.GetAxis("Horizontal") != 0)
         {
             //print("entered");
-            anim.Play("PlayerAtttack");
+            anim.Play("PlayerAttack");
         }
 
         //if (Input.GetKeyDown(KeyCode.A)){
