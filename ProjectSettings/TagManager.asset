@@ -5,11 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
-  - Enemy
-  - PowerUp
-  - Gate
-  - Snooze
-  - Heart
   layers:
   - Default
   - TransparentFX
