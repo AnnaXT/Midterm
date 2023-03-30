@@ -20,7 +20,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timeLeft > 0 && ! snoozed){
+        if (timeLeft > 0 && !snoozed){
             timeLeft -= Time.deltaTime;
             timerBar.fillAmount = timeLeft / maxTime;
         }
