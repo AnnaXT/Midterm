@@ -240,6 +240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   jumpForce: 888
+  flyForce: 555
   bulletForce: 500
   whatIsGround:
     serializedVersion: 2
