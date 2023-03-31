@@ -93,6 +93,7 @@ public class Player : MonoBehaviour
         {
             print(0);
             set_pwrUp(true);
+            _animator.SetBool("Flying", true);
         }
         // else if (other.CompareTag("Enemy")){
         //     print("enemy");
@@ -113,5 +114,6 @@ public class Player : MonoBehaviour
     IEnumerator Timer(){
         yield return new WaitForSeconds(5);
         set_pwrUp(false);
+        _animator.SetBool("Flying", false);
     }
 }
