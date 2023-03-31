@@ -1,16 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public Image timerBar;
+
     public int speed = 8;
     public int jumpForce = 888;
     public int flyForce = 111;
     public int bulletForce = 500;
 
     public LayerMask whatIsGround;
+    public LayerMask whatIsEnemy;
     public Transform feet;
+    public Transform front;
     public GameObject bulletPrefab;
     public Transform spawnPoint;
     public AudioClip shootSnd;
@@ -20,6 +25,7 @@ public class Player : MonoBehaviour
 
     bool grounded = false;
     bool pwrUp = false;
+    bool hit = false;
 
     void set_pwrUp(bool stat){ pwrUp = stat; }
     bool get_pwrUp(){ return pwrUp; }
@@ -49,6 +55,7 @@ public class Player : MonoBehaviour
     {
         grounded = Physics2D.OverlapCircle(feet.position, 0.2f, whatIsGround);
         pwrUp = get_pwrUp();
+        hit = Physics2D.OverlapCircle(front.position, 0.2f, whatIsEnemy);
 
         _animator.SetBool("Grounded", grounded);
 
@@ -75,14 +82,32 @@ public class Player : MonoBehaviour
             else 
             newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletForce, 0));
         }
+        if (hit) {
+            timerBar.GetComponent<Timer>().changeTime(-0.2f);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other){
+        print("Entered");
         if (other.CompareTag("PowerUp"))
         {
             print(0);
             set_pwrUp(true);
         }
+        // else if (other.CompareTag("Enemy")){
+        //     print("enemy");
+        //     timerBar.GetComponent<Timer>().changeTime(-3f);
+        // }
+        else if (other.CompareTag("Snooze")){
+            print("snooze");
+            timerBar.GetComponent<Timer>().snooze();
+        }
+
+        else if (other.CompareTag("Heart")){
+            print("heart");
+            timerBar.GetComponent<Timer>().changeTime(3f);
+        }
+
     }
 
     IEnumerator Timer(){
