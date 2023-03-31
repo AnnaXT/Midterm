@@ -18,8 +18,18 @@ public class ButtonMenu : MonoBehaviour
         SceneManager.LoadScene("Help");
     }
 
-    public void Quit() {
+    public void Quit() 
+    {
         SceneManager.LoadScene("start");
+    }
+
+    public void QuitGame() {
+        {
+            #if !UNITY_WEBGL
+                Application.Quit();
+            #endif
+        
+        }
     }
 
 }
