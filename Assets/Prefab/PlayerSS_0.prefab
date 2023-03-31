@@ -12,7 +12,7 @@ GameObject:
   m_Layer: 0
   m_Name: Spawn Point
   m_TagString: Untagged
-  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3523287047808555661}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.172, y: -0.036, z: 0}
+  m_LocalPosition: {x: 0.18, y: -0.036, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -283,8 +283,8 @@ MonoBehaviour:
     m_Bits: 128
   feet: {fileID: 2019639241619773528}
   front: {fileID: 5510049520447267564}
-  bulletPrefab: {fileID: 1078193830571679555, guid: 1d33cfefff9ae4379bd4d04cae6b91f9, type: 3}
   spawnPoint: {fileID: 373890462354109928}
+  bulletPrefab: {fileID: 731677265769420147, guid: b12d9836512e44cd8a25a6edf0dcce73, type: 3}
   shootSnd: {fileID: 0}
 --- !u!114 &5399009344575102939
 MonoBehaviour:
