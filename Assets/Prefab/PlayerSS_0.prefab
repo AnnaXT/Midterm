@@ -62,6 +62,37 @@ Transform:
   m_Father: {fileID: 5981923408816981460}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4603288839517126112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5510049520447267564}
+  m_Layer: 0
+  m_Name: front
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5510049520447267564
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4603288839517126112}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.15, y: 0, z: 0.08007837}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5981923408816981460}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5981923408816981463
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,6 +129,7 @@ Transform:
   m_Children:
   - {fileID: 2019639241619773528}
   - {fileID: 373890462354109928}
+  - {fileID: 5510049520447267564}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -204,7 +236,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -238,6 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a66da1cc86749a6b64a086a021f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerBar: {fileID: 0}
   speed: 8
   jumpForce: 888
   flyForce: 555
@@ -245,7 +278,11 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1
+  whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 128
   feet: {fileID: 2019639241619773528}
+  front: {fileID: 5510049520447267564}
   bulletPrefab: {fileID: 0}
   spawnPoint: {fileID: 0}
   shootSnd: {fileID: 0}
