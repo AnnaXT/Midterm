@@ -82,9 +82,8 @@ public class Player : MonoBehaviour
             else 
             newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletForce, 0));
         }
-
         if (hit) {
-            timerBar.GetComponent<Timer>().changeTime(-3f);
+            timerBar.GetComponent<Timer>().changeTime(-0.2f);
         }
     }
 
