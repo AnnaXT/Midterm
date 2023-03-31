@@ -1300,6 +1300,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2002659105000712660, guid: bde923a26f41f4fa9acec5a0b8b3e7d9, type: 3}
+      propertyPath: timerBar
+      value: 
+      objectReference: {fileID: 1686059119}
     - target: {fileID: 5149742068171513615, guid: bde923a26f41f4fa9acec5a0b8b3e7d9, type: 3}
       propertyPath: m_Name
       value: Clock1SS_0
@@ -2365,7 +2369,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 930881948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.89, y: -1.29, z: -10}
+  m_LocalPosition: {x: -7.89, y: -1.2899998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3253,6 +3257,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2002659105000712660, guid: bde923a26f41f4fa9acec5a0b8b3e7d9, type: 3}
+      propertyPath: timerBar
+      value: 
+      objectReference: {fileID: 1686059119}
     - target: {fileID: 5149742068171513615, guid: bde923a26f41f4fa9acec5a0b8b3e7d9, type: 3}
       propertyPath: m_Name
       value: Clock1SS_0 (1)
@@ -4053,6 +4061,10 @@ PrefabInstance:
       propertyPath: speed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7399785615659836159, guid: f3079d0f577ed4137a494c07c6746229, type: 3}
+      propertyPath: timerBar
+      value: 
+      objectReference: {fileID: 1686059119}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3079d0f577ed4137a494c07c6746229, type: 3}
 --- !u!4 &1613113761 stripped
@@ -4381,6 +4393,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6886483439616002296, guid: 211016eae5605492ea517d010e8bcce7, type: 3}
   m_PrefabInstance: {fileID: 1679243027}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1686059119 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2173967337695929936, guid: eec09642552324b168d4fda562501d70, type: 3}
+  m_PrefabInstance: {fileID: 700409477}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1689656183
 GameObject:
   m_ObjectHideFlags: 0
@@ -4493,7 +4516,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689656183}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.89, y: -1.29, z: -10}
+  m_LocalPosition: {x: -7.89, y: -1.2899998, z: -10}
   m_LocalScale: {x: 1, y: 0, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

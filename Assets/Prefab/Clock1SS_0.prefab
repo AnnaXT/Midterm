@@ -143,6 +143,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 0}
+  timerBar: {fileID: 0}
+  whatIsBullet:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!60 &1942644853197824881
 PolygonCollider2D:
   m_ObjectHideFlags: 0
