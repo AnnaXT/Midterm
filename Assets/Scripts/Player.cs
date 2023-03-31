@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other){
-        if (other.CompareTag("Candy"))
+        if (other.CompareTag("PowerUp"))
         {
             print(0);
             set_pwrUp(true);
