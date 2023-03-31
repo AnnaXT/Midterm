@@ -10,6 +10,7 @@ TagManager:
   - Gate
   - Snooze
   - Heart
+  - Bullet
   layers:
   - Default
   - TransparentFX

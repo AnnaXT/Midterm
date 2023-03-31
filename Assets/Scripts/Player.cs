@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
             _rigidbody.AddForce(new Vector2(0, flyForce));
         }
 
-        if(Input.GetButtonDown("Fire1"))
+        if(Input.GetButtonDown("Fire1") && !pwrUp)
         {
             _animator.Play("PlayerAttack");
             _audiosource.PlayOneShot(shootSnd);
@@ -106,7 +106,7 @@ public class Player : MonoBehaviour
 
         else if (other.CompareTag("Heart")){
             print("heart");
-            timerBar.GetComponent<Timer>().changeTime(3f);
+            timerBar.GetComponent<Timer>().changeTime(5f);
         }
 
     }
