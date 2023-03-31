@@ -10,14 +10,14 @@ public class Player : MonoBehaviour
     public int speed = 8;
     public int jumpForce = 888;
     public int flyForce = 111;
-    public int bulletForce = 500;
+    public int bulletForce = 1;
 
     public LayerMask whatIsGround;
     public LayerMask whatIsEnemy;
     public Transform feet;
     public Transform front;
-    public GameObject bulletPrefab;
     public Transform spawnPoint;
+    public GameObject bulletPrefab;
     public AudioClip shootSnd;
     private Rigidbody2D _rigidbody;
     private Animator _animator;
@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     bool grounded = false;
     bool pwrUp = false;
     bool hit = false;
+    // bool bullet = false;
 
     void set_pwrUp(bool stat){ pwrUp = stat; }
     bool get_pwrUp(){ return pwrUp; }
@@ -77,14 +78,23 @@ public class Player : MonoBehaviour
             
             if(transform.localScale.x > 0)
             {
-                newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(-bulletForce, 0));
+                newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletForce, 0));
             }
             else 
-            newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletForce, 0));
+            newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(-bulletForce, 0));
+
+            // bullet = Physics2D.OverlapCircle(GameObject.FindGameObjectWithTag("Bullet").transform.position, 0.2f, whatIsEnemy);
+
+            // if (bullet) {
+            //     print("yolo");
+            //     timerBar.GetComponent<Timer>().changeTime(2f);
+            // }
         }
+
         if (hit) {
-            timerBar.GetComponent<Timer>().changeTime(-0.2f);
+            timerBar.GetComponent<Timer>().changeTime(-5f * Time.deltaTime);
         }
+
     }
 
     void OnTriggerEnter2D(Collider2D other){
