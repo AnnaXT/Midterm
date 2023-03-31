@@ -5663,6 +5663,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Timer
       objectReference: {fileID: 0}
+    - target: {fileID: 2173967337695929939, guid: eec09642552324b168d4fda562501d70, type: 3}
+      propertyPath: maxTime
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 2173967338666186170, guid: eec09642552324b168d4fda562501d70, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
