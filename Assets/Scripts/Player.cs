@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public Image timerBar;
+
     public int speed = 8;
     public int jumpForce = 888;
     public int flyForce = 111;
@@ -78,11 +81,26 @@ public class Player : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other){
+        print("Entered");
         if (other.CompareTag("PowerUp"))
         {
             print(0);
             set_pwrUp(true);
         }
+        else if (other.CompareTag("Enemy")){
+            print("enemy");
+            timerBar.GetComponent<Timer>().changeTime(-3f);
+        }
+        else if (other.CompareTag("Snooze")){
+            print("snooze");
+            timerBar.GetComponent<Timer>().snooze();
+        }
+
+        else if (other.CompareTag("Heart")){
+            print("heart");
+            timerBar.GetComponent<Timer>().changeTime(3f);
+        }
+
     }
 
     IEnumerator Timer(){
