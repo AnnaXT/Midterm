@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
             _rigidbody.AddForce(new Vector2(0, flyForce));
         }
 
-        if(Input.GetButtonDown("Fire1"))
+        if(Input.GetButtonDown("Fire1") && !pwrUp)
         {
             _animator.Play("PlayerAttack");
             _audiosource.PlayOneShot(shootSnd);
@@ -93,6 +93,7 @@ public class Player : MonoBehaviour
         {
             print(0);
             set_pwrUp(true);
+            _animator.SetBool("Flying", true);
         }
         // else if (other.CompareTag("Enemy")){
         //     print("enemy");
@@ -105,7 +106,7 @@ public class Player : MonoBehaviour
 
         else if (other.CompareTag("Heart")){
             print("heart");
-            timerBar.GetComponent<Timer>().changeTime(3f);
+            timerBar.GetComponent<Timer>().changeTime(5f);
         }
 
     }
@@ -113,5 +114,6 @@ public class Player : MonoBehaviour
     IEnumerator Timer(){
         yield return new WaitForSeconds(5);
         set_pwrUp(false);
+        _animator.SetBool("Flying", false);
     }
 }

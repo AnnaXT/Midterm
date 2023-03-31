@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
     public GameObject explosion;
+    public Image timerBar;
     Transform player;
     Animator _animator;
     Rigidbody2D _rigidbody;
@@ -34,15 +36,17 @@ public class Enemy : MonoBehaviour
             _rigidbody.AddForce(new Vector2(transform.localScale.x * 100, 100));
         }
     }
-private void OnTriggerEnter2D(Collider2D other)
-{
-    if(other.CompareTag("Bullet"))
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Instantiate(explosion, transform.position,Quaternion.identity);
-        Destroy(other.gameObject);
-        _animator.SetTrigger("Die");
-        Destroy(gameObject, .15f);
+        if(other.CompareTag("Bullet"))
+        {
+            print("hit");
+            timerBar.GetComponent<Timer>().changeTime(5f);
+            //Instantiate(explosion, transform.position,Quaternion.identity);
+            Destroy(other.gameObject);
+            //_animator.SetTrigger("Die");
+            Destroy(gameObject, .15f);
+        }
     }
-}
 
 }
