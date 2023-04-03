@@ -30,12 +30,25 @@ public class Enemy : MonoBehaviour
             transform.localScale *= new Vector2(-1, 1);
         }
 
-        hit = Physics2D.OverlapCircle(GameObject.FindGameObjectWithTag("Enemy").transform.position, 0.2f, whatIsBullet);
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        hit = false;
 
-        if (hit) {
-            timerBar.GetComponent<Timer>().changeTime(100f * Time.deltaTime);
-            Destroy(gameObject, .15f);
+        for (int i = 0; i < enemies.Length; ++i){
+            hit = Physics2D.OverlapCircle(enemies[i].transform.position, 0.2f, whatIsBullet);
+            if (hit) {
+                timerBar.GetComponent<Timer>().changeTime(100f * Time.deltaTime);
+                Destroy(enemies[i], .15f);
+                hit = false;
+            }
+
         }
+
+        //hit = Physics2D.OverlapCircle(GameObject.FindGameObjectWithTag("Enemy").transform.position, 0.2f, whatIsBullet);
+
+        //if (hit) {
+        //    timerBar.GetComponent<Timer>().changeTime(100f * Time.deltaTime);
+        //    Destroy(gameObject, .15f);
+        //}
 
     }
 
