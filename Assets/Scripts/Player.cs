@@ -18,7 +18,8 @@ public class Player : MonoBehaviour
     public Transform front;
     public Transform spawnPoint;
     public GameObject bulletPrefab;
-    public AudioClip shootSnd;
+    public AudioClip coinSnd;
+    public AudioClip hitSnd;
     private Rigidbody2D _rigidbody;
     private Animator _animator;
     private AudioSource _audiosource;
@@ -73,7 +74,7 @@ public class Player : MonoBehaviour
         if(Input.GetButtonDown("Fire1") && !pwrUp)
         {
             _animator.Play("PlayerAttack");
-            _audiosource.PlayOneShot(shootSnd);
+            //_audiosource.PlayOneShot(shootSnd);
             GameObject newBullet = Instantiate(bulletPrefab, spawnPoint.position, Quaternion.identity);
             
             if(transform.localScale.x > 0)
@@ -93,6 +94,7 @@ public class Player : MonoBehaviour
 
         if (hit) {
             timerBar.GetComponent<Timer>().changeTime(-5f * Time.deltaTime);
+            _audiosource.PlayOneShot(hitSnd);
         }
 
     }
@@ -101,7 +103,7 @@ public class Player : MonoBehaviour
         print("Entered");
         if (other.CompareTag("PowerUp"))
         {
-            print(0);
+            _audiosource.PlayOneShot(coinSnd);
             set_pwrUp(true);
             _animator.SetBool("Flying", true);
         }
@@ -110,12 +112,14 @@ public class Player : MonoBehaviour
         //     timerBar.GetComponent<Timer>().changeTime(-3f);
         // }
         else if (other.CompareTag("Snooze")){
+            _audiosource.PlayOneShot(coinSnd);
             print("snooze");
             timerBar.GetComponent<Timer>().snooze();
         }
 
         else if (other.CompareTag("Heart")){
             print("heart");
+            _audiosource.PlayOneShot(coinSnd);
             timerBar.GetComponent<Timer>().changeTime(5f);
         }
 
