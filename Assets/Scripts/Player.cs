@@ -18,11 +18,13 @@ public class Player : MonoBehaviour
     public Transform front;
     public Transform spawnPoint;
     public GameObject bulletPrefab;
+    public ParticleSystem trail;
     public AudioClip coinSnd;
     public AudioClip hitSnd;
     private Rigidbody2D _rigidbody;
     private Animator _animator;
     private AudioSource _audiosource;
+    private ParticleSystem _ps;
 
     bool grounded = false;
     bool pwrUp = false;
@@ -37,6 +39,7 @@ public class Player : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _audiosource = GetComponent<AudioSource>();
+        _ps = GetComponent<ParticleSystem>();
     }
 
     void FixedUpdate()
@@ -47,7 +50,13 @@ public class Player : MonoBehaviour
         float xScale = transform.localScale.x;
         if((xSpeed < 0 && xScale > 0) || (xSpeed > 0 && xScale < 1))
         {
+            _ps.Play();
             transform.localScale *= new Vector2(-1, 1);
+        }
+
+        if(Input.GetAxis("Horizontal") == 0 && Input.GetButtonDown("Jump") == false)
+        {
+            _ps.Stop();
         }
 
         _animator.SetFloat("Speed", Mathf.Abs(xSpeed));
@@ -71,7 +80,7 @@ public class Player : MonoBehaviour
             _rigidbody.AddForce(new Vector2(0, flyForce));
         }
 
-        if(Input.GetButtonDown("Fire1") && !pwrUp)
+        if(Input.GetButtonDown("f") && !pwrUp)
         {
             _animator.Play("PlayerAttack");
             //_audiosource.PlayOneShot(shootSnd);
