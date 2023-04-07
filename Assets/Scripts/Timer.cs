@@ -25,7 +25,6 @@ public class Timer : MonoBehaviour
             timerBar.fillAmount = timeLeft / maxTime;
         }
         else if (timeLeft <= 0){
-            Time.timeScale = 0;
             SceneManager.LoadScene("Lose");
         }
         
