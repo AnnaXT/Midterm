@@ -43,11 +43,9 @@ public class ButtonMenu : MonoBehaviour
         SceneManager.LoadScene("start");
     }
 
-    // public void QuitGame()
-    // {
-    // #if !UNITY_WEBGL
-    //     Application.Quit();
-    // #endif
-    // }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 
 }
